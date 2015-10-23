@@ -109,6 +109,8 @@ class Artifactory(object):
             with open(artifactory_path, "wb") as out:
                 out.write(fl.read())
 
+        return artifact
+
     def get_by_name(self, artifact_name):
         """
         Get artifact by name
