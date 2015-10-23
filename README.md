@@ -137,3 +137,31 @@ cert = ~/mycert
 ```
 
 Whether or not you specify ```http://``` or ```https://``` prefix is not essential. The module will first try to locate the best match and then try to match URLs without prefixes. So if in the config you specify ```https://my-instance.local``` and call ```ArtifactoryPath``` with ```http://my-instance.local```, it will still do the right thing. 
+
+
+## API ##
+
+- Define artifactory server details
+
+        artifactory = Artifactory(
+            url="https://artifactory.example.com",
+            repo="repo-location",
+            group="ext-snapshot-local/com/example",
+            artifact="api",
+            version="0.0.1-SNAPSHOT",
+            )
+
+- Get artifact by name
+
+        artifact = artifactory.get_by_name("artifact-name")
+
+- Get latest artifactory
+
+        artifact = artifactory.get_latest()
+
+- Download artifact
+
+        artifact = artifactory.download("artifact-name")
+
+        # or get latest artifact
+        artifact = artifactory.download()
